@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzz.mapper.EmpMapper">
+    <select id="queryAll" resultType="map" parameterType="Map">-- resultType="map"设置返回结果集类型
+--                                                                 parameterType="Map"设置参数类型
+        select e.*,d.dname from dept d,emp e where d.deptno=e.deptno
+        <if test="params.deptno!=null">
+            and e.deptno=#{params.deptno}
+        </if>
+        <if test="params.ename!=null and params.ename!=''">
+            and ename like "%"#{params.ename}"%"
+        </if>
+        <if test="params.start!=null and params.end!=null and params.start!='' and params.end!=''">
+            and hiredate between #{params.start} and #{params.end}
+        </if>
+    </select>
+</mapper>

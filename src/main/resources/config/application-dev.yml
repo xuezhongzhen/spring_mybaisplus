@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/test2
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+  mvc:
+    date-format: yyyy-MM-dd
+  thymeleaf:
+    cache: false
+#mybatis
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com:
+      xzz:
+        mapper: debug
+
